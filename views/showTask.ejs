@@ -1,0 +1,73 @@
+<%- include('./partials/sidebar')%>
+
+<main id="main" class="content-wrapper">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Task Table</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">DataTables</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">
+                users Tasks
+              </h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>s.no</th>
+                    <th>tAsk Title</th>
+                    <th>user Name</th>
+                    <th>uPdate</th>
+                    <th>deleteTask</th>
+                 
+                    
+                  </tr>
+                </thead>
+               
+                <% task.forEach(function(t,i){ %>
+                    
+                    <tbody>
+                        <tr>
+                            <td><%= i+1 %></td>
+                            <td><%= t.title%></td>
+                            <% if(t.creater){%>
+                            <td><%= t.creater.name%></td>
+                            <% } %>
+                            <% if(t){%>
+                              <td><a href="/deleteTask/<%= t.id%>" class="nav-link"><button key={<%= t.id%>} class="btn "><i class="fa fa-trash"></i></button> </a>  </td>
+                              <%}%>
+                              <% if(t){%>
+                                  <td> <a href="/updateTask/<%=t.id%>"  class="nav-link"> <button onclick={clickHandler} key={<%= t.id%>} class="btn btn-"> update</button> </a></td>
+                                  <%}%>
+                        </tr>
+                        
+                    </tbody>
+                    <%})%>
+                    
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

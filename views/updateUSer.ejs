@@ -1,0 +1,33 @@
+<%- include('./partials/sidebar')%>
+
+
+<main id="main" class=" content-wrapper ">
+      <h2 class="p-1">UPdate User</h2>
+      <div class="container-fluid pt-5 ">
+      <div class="row justify-content-center ">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+  
+              <form action="/updateUser/<%= id %>" method="POST">
+                <div class="form-group">
+                  <label for="name">Name:</label>
+                  <input class="form-control" value="<%= user.name%>" id="name" placeholder="Enter Name" name="name" type="text" />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input class="form-control"  value="<%= user.email%>" id="email" placeholder="Enter email" name="email" type="email" />
+                </div>
+                <div class="form-group">
+                  <label for="password">Password:</label>
+                  <input class="form-control" value="<%= user.password%>" id="password" placeholder="Enter Password" name="password" type="text" />
+                </div>
+                <button class="btn btn-primary btn-block">Update User</button>
+              </form>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>

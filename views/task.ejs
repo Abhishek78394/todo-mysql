@@ -1,0 +1,40 @@
+<%- include('./partials/sidebar')%>
+
+
+<main id="main" class=" content-wrapper ">
+      <h2 class="p-1">CReate task</h2>
+      <div class="container-fluid pt-5 ">
+      <div class="row justify-content-center ">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+  
+              <form action="/create_task" method="POST">
+      
+                    <select name="user" class="form-control w-25 select2" id="cars" >
+                        <option value="" selected hidden disable>Select User ></option>
+                    <% users.forEach(function(u,i){ %>
+                        <option value="<%= u.id%>"><%= u.name%></option>
+
+                        <% })%>
+                    </select>
+                
+
+
+                <div class="form-group">
+                  <label for="name">Title:</label>
+                  <input class="form-control" id="title" placeholder="Enter title" name="title" type="text" />
+                </div>
+
+               
+
+               
+                <button class="btn btn-primary btn-block">create task</button>
+              </form>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>

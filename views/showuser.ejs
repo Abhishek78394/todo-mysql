@@ -1,0 +1,66 @@
+<%- include('./partials/sidebar')%>
+
+<main id="main" class="content-wrapper">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>DataTables</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">DataTables</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">
+                users DataTable
+              </h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>s.no</th>
+                    <th>Name</th>
+                    <th>Email(s)</th>
+                    <th>delete</th>
+                    <th>update</th>
+                    
+                  </tr>
+                </thead>
+                <% users.forEach(function(u,i){ %>
+                    
+                <tbody>
+                  <tr>
+                      <td><%= i+1 %></td>
+                    <td><%= u.name %></td>
+                    <td><%=  u.email%></td>
+                    <% if(u){%>
+                    <td><a href="/deleteUser/<%= u.id%>" class="nav-link"><button key={<%= u.id%>} class="btn "><i class="fa fa-trash"></i></button> </a>  </td>
+                    <%}%>
+                    <% if(u){%>
+                        <td> <a href="/updateUser/<%=u.id%>"  class="nav-link"> <button onclick={clickHandler} key={<%= u.id%>} class="btn btn-"> update</button> </a></td>
+                        <%}%>
+                    
+                        <%})%>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
