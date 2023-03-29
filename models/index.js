@@ -19,8 +19,8 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.task = require('./task')(sequelize, DataTypes);
-db.user = require('./user')(sequelize, DataTypes);
-db.creater = require('./creater')(sequelize, DataTypes);
+db.user = require('./admin')(sequelize, DataTypes);
+db.creater = require('./users')(sequelize, DataTypes);
 
 
 db.sequelize.sync({force: false})
